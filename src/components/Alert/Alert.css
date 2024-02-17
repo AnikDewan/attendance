@@ -1,0 +1,46 @@
+.alert-container{
+	position: fixed;
+  top: 80px;
+  right: 20%;
+	width: 60vw;	
+  padding: 10px 20px;
+  border-radius: 10px;
+  z-index: 100;
+}
+
+.alert-container>div{
+   margin:auto;
+   width: 100%;
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+	gap: 20px;
+}
+
+.alert-icon{
+  font-size: 5rem;
+}
+
+.alert-title{
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.alert-message{
+	font-size: 0.7rem;
+}
+
+.alert-button-container{
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+.alert-button{
+	padding: 10px 20px;
+	border-radius: 10px;
+	font-weight: bold;
+	color: white;
+	border: none;
+	cursor: pointer;
+}

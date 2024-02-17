@@ -1,0 +1,95 @@
+.wrapper {
+	display: flex;
+	align-items: center ;
+  justify-content: center; 
+	background: url('./BG.jpg');
+	min-height: 100vh;
+	background-size: cover;
+	}
+.container {
+  max-width: 60vh;
+  box-shadow: 0 0 40px rgba(133, 189, 215, .8);
+	border-radius: 4vw;
+	background: transparent;
+	backdrop-filter: blur(2px);
+  padding: 25px 35px;
+  margin: 20px;
+	margin-top: -10vh;
+}
+
+.heading {
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+  color: rgb(16, 137, 211);
+}
+
+.form {
+  margin-top: 20px;
+}
+
+.form .input {
+  width: 100%;
+  background: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 20px;
+  margin-top: 2em;
+  box-shadow: #cff0ff 0px 10px 10px -5px;
+  border-inline: 2px solid transparent;
+}
+
+.form .input::-moz-placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input::placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input:focus {
+  outline: none;
+  border-inline: 2px solid #12B1D1;
+}
+.eye {
+	position: relative;
+	top: -30px;
+	left: 85%;
+	width: 1.5em;
+	
+}
+.form .login-button {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+  color: white;
+  padding-block: 15px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.form .login-button:hover {
+  transform: scale(1.03);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+}
+
+.form .login-button:active {
+  transform: scale(0.95);
+  box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+}
+
+.signin {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.signin strong {
+  text-decoration: none;
+  color: #0099ff;
+  font-size: 17px;
+}

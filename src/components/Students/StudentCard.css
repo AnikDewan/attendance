@@ -1,0 +1,10 @@
+.taking-attendance{
+	width: calc(100% - 40px);
+  padding: 16px;
+	margin-left: 20px;
+  margin-top: -15px;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid rgba(128,128,128,0.5);
+  
+}

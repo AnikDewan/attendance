@@ -1,0 +1,74 @@
+.card {
+  position: relative;
+  width: calc(100% - 40px);
+  margin: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+
+}
+
+.profile-section {
+	flex: 6;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.profile-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.name {
+  font-size: 16px;
+}
+
+.options-section{
+	flex: 1;
+  padding: 1.8rem 0px;
+}
+
+.three-dots-icon {
+  font-size: 20px;
+  padding-left: 50%;
+  cursor: pointer;
+}
+
+.popup {
+  position: absolute;
+  top: min(50%, 100px);;
+  right: 30px;
+  padding: 8px;
+  border-radius: 4px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.popup-option {
+  cursor: pointer;
+	width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  margin-bottom: 4px;
+}
+
+.popup-icon {
+  margin-right: 8px;
+}
+
+.popup-option-name {
+  margin-left: 8px;
+}
+
+#delete{
+  color: rgb(255, 65, 65);;
+}

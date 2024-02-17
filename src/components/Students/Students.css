@@ -1,0 +1,30 @@
+.heading-title{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 1.5rem;
+  border-bottom: 2px solid rgba(128,128,128,0.5);
+}
+.heading-title strong{
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+.submit-btn{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5rem 1rem;
+	margin:20px;
+	border-radius: 5px;
+	background: #00fbff;
+	font-size: 1.2rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.submit-btn:hover{
+	background: #00bfbf;
+}
