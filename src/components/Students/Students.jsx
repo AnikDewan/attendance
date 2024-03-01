@@ -69,8 +69,6 @@ const Students = () => {
   }, [refresh]);
 
   const takeAttendance = async () => {
-    console.log(attSheet);
-    console.log(token);
     try {
       const response = await fetch(`${URL}takeattendance/`, {
         method: "PUT",

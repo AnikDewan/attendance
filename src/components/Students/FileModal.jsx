@@ -45,7 +45,6 @@ const FileModal = ({ setModalVisible, setRefresh, classid, theme }) => {
           const sheetName = workbook.SheetNames[0];
           const sheet = workbook.Sheets[sheetName];
           const parsedData = XLSX.utils.sheet_to_json(sheet);
-          console.log(parsedData);
           const response = await fetch(`${URL}addmanystudents/${classid}`, {
             method: "POST",
             body: JSON.stringify(parsedData),
