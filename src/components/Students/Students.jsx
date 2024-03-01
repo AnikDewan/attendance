@@ -6,10 +6,12 @@ import {
   faEllipsisV,
   faListCheck,
   faPlus,
+  faCirclePlus,
 } from "@fortawesome/free-solid-svg-icons";
 import StudentCard from "./StudentCard";
 import StudentModal from "./StudentModal";
 import Alert from "../Alert/Alert.jsx";
+import Loader from "../Loader/Loader";
 import "./Students.css";
 
 import FileModal from "./FileModal";
@@ -21,12 +23,14 @@ const Students = () => {
   const [tabOpen, setTabOpen] = useState(false);
   const [refresh, setRefresh] = useState(false);
   const [openAlert, setOpenAlert] = useState(false);
+  const [type, setType] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
   const [isPopupOpen, setPopupOpen] = useState(false);
   const [takingAttendance, setTakingAttendance] = useState(false);
   const token = localStorage.getItem("auth-token");
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const { classid } = useParams();
   const [mode, setMode] = useState(localStorage.getItem("theme") === "true");
@@ -48,27 +52,53 @@ const Students = () => {
           return a.roll - b.roll;
         });
         if (result.error) {
+          setType("error");
           setOpenAlert(true);
           setAlertMessage(result.error);
         } else {
           setData(result);
         }
       } catch (error) {
+        setType("error");
         setOpenAlert(true);
-        setAlertMessage(error);
       }
+      setLoading(false);
     };
 
     fetchData();
   }, [refresh]);
 
-  const takeAttendance = () => {
-		console.log(attSheet);
+  const takeAttendance = async () => {
+    console.log(attSheet);
+    console.log(token);
+    try {
+      const response = await fetch(`${URL}takeattendance/`, {
+        method: "PUT",
+        body: JSON.stringify(attSheet),
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": token,
+        },
+      });
+      const result = await response.json();
+      if (result.error) {
+        setType("error");
+        setOpenAlert(true);
+        setAlertMessage(result.error);
+      } else {
+        setType("success");
+        setRefresh((prevState) => !prevState);
+      }
+    } catch (error) {
+      setType("error");
+    }
+    setLoading(false);
+    setOpenAlert(true);
+    setTakingAttendance(false);
   };
 
   const addManyStudents = () => {
-    console.log("add many students");
-    setModalVisible(true)
+    setModalVisible(true);
     setPopupOpen(false);
   };
 
@@ -132,14 +162,34 @@ const Students = () => {
 
       {openAlert && (
         <Alert
-          type="error"
+          type={type}
           setOpenAlert={setOpenAlert}
           message={alertMessage}
           theme={mode}
         />
       )}
 
-      {modalVisible && <FileModal setModalVisible={setModalVisible} />}
+      {modalVisible && (
+        <FileModal
+          setModalVisible={setModalVisible}
+          setRefresh={setRefresh}
+          classid={classid}
+          theme={mode}
+        />
+      )}
+
+      {loading && <Loader />}
+
+      {data.length === 0 && !loading && (
+        <div className="no-content">
+          <FontAwesomeIcon
+            icon={faCirclePlus}
+            className="no-content-icon"
+            onClick={addManyStudents}
+          />
+          <h1>No students found</h1>
+        </div>
+      )}
 
       <div className="student-cards">
         {data.map((student) => (

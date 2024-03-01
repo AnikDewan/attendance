@@ -43,7 +43,6 @@ const ClassModal = ({
       }
     } catch (err) {
       setAlertType("error");
-      setAlertMessage(err);
     }
     setOpenAlert(true);
   };

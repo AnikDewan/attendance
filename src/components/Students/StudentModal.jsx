@@ -14,7 +14,7 @@ const StudentModal = ({
   studentid,
 }) => {
   const [newName, setNewName] = useState(name || "");
-  const [newRoll, setNewRoll] = useState(roll || 0);
+  const [newRoll, setNewRoll] = useState(roll || "");
   const [alertType, setAlertType] = useState("");
   const [openAlert, setOpenAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState(null);
@@ -43,7 +43,6 @@ const StudentModal = ({
       }
     } catch (err) {
       setAlertType("error");
-      setAlertMessage(err);
     }
     setOpenAlert(true);
   };

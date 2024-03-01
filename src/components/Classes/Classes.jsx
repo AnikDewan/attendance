@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import ClassModal from "./ClassModal";
 import Alert from "../Alert/Alert.jsx";
+import Loader from "../Loader/Loader";
 const URL = import.meta.env.VITE_API_URL;
 import Card from "./Card";
 
-const Content = () => {
+const Classes = () => {
   const [data, setData] = useState([]);
   const [tabOpen, setTabOpen] = useState(false);
   const [refresh, setRefresh] = useState(false);
   const [openAlert, setOpenAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+  const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("auth-token");
   const navigate = useNavigate();
   const [mode, setMode] = useState(localStorage.getItem("theme") === "true");
@@ -38,8 +40,8 @@ const Content = () => {
         }
       } catch (error) {
         setOpenAlert(true);
-        setAlertMessage(error);
       }
+      setLoading(false);
     };
 
     fetchData();
@@ -77,6 +79,19 @@ const Content = () => {
         )}
       </div>
       <div>
+        {loading && <Loader />}
+
+        {data.length === 0 && !loading && (
+          <div className="no-content">
+            <FontAwesomeIcon
+              icon={faCirclePlus}
+              className="no-content-icon"
+              onClick={() => setTabOpen(true)}
+            />
+            <h1>No classes found</h1>
+          </div>
+        )}
+
         {data.map((item) => (
           <Card
             key={item._id}
@@ -93,4 +108,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default Classes;

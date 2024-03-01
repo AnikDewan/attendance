@@ -29,7 +29,7 @@ const Menu = ({ name, state, theme, toggle }) => {
       </div>
       <div className="logout">
         <p>Logout </p>
-        <Logout />
+        <Logout theme={theme} />
       </div>
     </div>
   );

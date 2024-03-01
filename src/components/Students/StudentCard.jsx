@@ -69,7 +69,6 @@ const Card = ({
         setAlertMessage(result.success);
       }
     } catch (err) {
-      console.error(err);
       setType("error");
     }
     setOpenAlert(true);

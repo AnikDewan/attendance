@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import Hamburger from "../Hamburger/Hamburger";
-import Loader from "../Loader/Loader";
 import Menu from "../Menu/Menu";
 import title from "./title.png";
 import ClickOutside from "../ClickOutside.jsx";
@@ -13,7 +12,6 @@ const Home = () => {
   const navigate = useNavigate();
   const [teacher, setTeacher] = useState({});
   const [hamSelect, setHamSelect] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [mode, setMode] = useState(localStorage.getItem("theme") === "true");
 
   const getTeacher = async () => {
@@ -29,7 +27,6 @@ const Home = () => {
       navigate("/login");
     } else {
       setTeacher(result);
-      setLoading(false);
     }
   };
 
@@ -60,7 +57,6 @@ const Home = () => {
           />
         </nav>
       </ClickOutside>
-      {loading && <Loader />}
       <Outlet />
     </div>
   );

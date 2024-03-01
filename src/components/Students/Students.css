@@ -28,3 +28,15 @@
 .submit-btn:hover{
 	background: #00bfbf;
 }
+
+.no-content{
+	display: flex;
+  align-items: center;
+  flex-direction: column;
+	padding-top: 30%;
+}
+
+.no-content-icon{
+	font-size: 7rem;
+  margin-bottom: 1.2rem;
+}

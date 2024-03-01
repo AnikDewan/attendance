@@ -1,31 +1,52 @@
-/* Add your modal styles here */
-
-.modal {
-  
-}
 
 .modal-content {
 	position: fixed;
   z-index: 10;
-  left: 0;
-  top: 0;
-  width: 50%;
+  left: 20%;
+  top: 100px;
+  width: 60%;
   height: 50%;
+  padding: 10px;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  margin: 15% auto;
-  padding: 20px;
+	border-radius: 10px;
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+	flex-direction: column;
   border: 1px solid #888;
 }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
+.modal-input {
+	flex: 3;
+	position:relative;
+	font-size: 4rem;
+	display: flex;
+	justify-content: center;
+	padding-top: 25%;
+	margin-bottom: 10px;
+	color: rgb(80, 151, 222);
+	border: 3px dashed rgb(210, 227, 244);
 }
 
-.close:hover {
-  color: black;
+.file-info {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;	
+	align-items: center;
+	gap: 10px;
+	flex: 1;
+}
+
+.file-info strong{
+  font-size: 1.2rem;
+	margin-bottom: -10px;
+}
+
+.modal-input input {
+	position: absolute;
+  height:100%;
+	width:100%;
+	top: 0;
+	right: 0;
+  opacity: 0;
+  cursor: pointer;
 }
