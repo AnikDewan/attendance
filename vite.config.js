@@ -30,7 +30,7 @@ const manifestForPlugIn = {
       },
       {
         src: "/maskable_icon.png",
-        sizes: "512x512",
+        sizes: "72x72",
         type: "image/png",
         purpose: "any maskable",
       },
