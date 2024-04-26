@@ -25,6 +25,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "react-router-dom": "^6.21.0",
+    "vite-plugin-pwa": "^0.19.8",
     "xlsx": "^0.18.5"
   }
 }
