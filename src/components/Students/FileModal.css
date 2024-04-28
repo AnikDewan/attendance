@@ -21,6 +21,7 @@
 	font-size: 4rem;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	padding-top: 25%;
 	margin-bottom: 10px;
 	color: rgb(80, 151, 222);
